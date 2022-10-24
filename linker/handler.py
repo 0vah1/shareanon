@@ -31,7 +31,6 @@ async def see_message(u: Update, _: ContextTypes.DEFAULT_TYPE):
 
 handlers = [
     ConversationHandler(
-        per_chat=False,
         entry_points=[CommandHandler('share', start_share_anon)],
         states={1: [MessageHandler(filters.TEXT & ~ filters.COMMAND, get_link)]},
         fallbacks=[CommandHandler('cancel', cancel)],
